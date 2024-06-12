@@ -1,0 +1,6 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "@vuepic/vue-datepicker/dist/main.css";
+@import "floating-vue/dist/style.css";

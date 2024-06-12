@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "fetch:data": "ts-node -P tsconfig-script.json ./scripts/token.ts",
+    "build": "nuxt build",
+    "dev": "nuxt dev --force",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "prepare": "husky install",
+    "postinstall": "yarn add https://github.com/InjectiveLabs/shared-packages#master --ignore-scripts && yarn fetch:data"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
+    "@vueuse/components": "^10.3.0",
+    "@vueuse/nuxt": "^10.3.0",
+    "shared-packages": "https://github.com/InjectiveLabs/shared-packages#master"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.6.7",
+    "@commitlint/config-conventional": "17.6.7",
+    "@injectivelabs/eslint-config": "^1.1.8",
+    "@nuxtjs/i18n": "8.5.5",
+    "@nuxtjs/tailwindcss": "6.12.2",
+    "eslint": "8.37.0",
+    "husky": "9.1.6",
+    "lint-staged": "13.2.3",
+    "nuxt": "3.13.2",
+    "prettier": "3.0.0",
+    "ts-node": "^10.9.2",
+    "vue": "^3.5.5",
+    "vue-router": "^4.3.3",
+    "vue-tsc": "2.1.6"
+  },
+  "resolutions": {
+    "@solana/web3.js": "1.95.5"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,html}": [
+      "eslint --max-warnings 0 --no-ignore"
+    ]
+  }
+}
