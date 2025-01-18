@@ -4,6 +4,7 @@ type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {refre
 interface _GlobalComponents {
       'Example': typeof import("../components/Example.vue")['default']
     'SharedAccordion': typeof import("../../injective-ui/layer/components/Accordion.vue")['default']
+    'SharedAmountBalance': typeof import("../../injective-ui/layer/components/AmountBalance.vue")['default']
     'SharedAmountCollapsed': typeof import("../../injective-ui/layer/components/AmountCollapsed.vue")['default']
     'SharedAmountFormatter': typeof import("../../injective-ui/layer/components/AmountFormatter.vue")['default']
     'SharedBitMapFilterList': typeof import("../../injective-ui/layer/components/BitMapFilterList.vue")['default']
@@ -67,6 +68,7 @@ interface _GlobalComponents {
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyExample': typeof import("../components/Example.vue")['default']
     'LazySharedAccordion': typeof import("../../injective-ui/layer/components/Accordion.vue")['default']
+    'LazySharedAmountBalance': typeof import("../../injective-ui/layer/components/AmountBalance.vue")['default']
     'LazySharedAmountCollapsed': typeof import("../../injective-ui/layer/components/AmountCollapsed.vue")['default']
     'LazySharedAmountFormatter': typeof import("../../injective-ui/layer/components/AmountFormatter.vue")['default']
     'LazySharedBitMapFilterList': typeof import("../../injective-ui/layer/components/BitMapFilterList.vue")['default']
@@ -136,6 +138,7 @@ declare module 'vue' {
 
 export const Example: typeof import("../components/Example.vue")['default']
 export const SharedAccordion: typeof import("../../injective-ui/layer/components/Accordion.vue")['default']
+export const SharedAmountBalance: typeof import("../../injective-ui/layer/components/AmountBalance.vue")['default']
 export const SharedAmountCollapsed: typeof import("../../injective-ui/layer/components/AmountCollapsed.vue")['default']
 export const SharedAmountFormatter: typeof import("../../injective-ui/layer/components/AmountFormatter.vue")['default']
 export const SharedBitMapFilterList: typeof import("../../injective-ui/layer/components/BitMapFilterList.vue")['default']
@@ -199,6 +202,7 @@ export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyExample: typeof import("../components/Example.vue")['default']
 export const LazySharedAccordion: typeof import("../../injective-ui/layer/components/Accordion.vue")['default']
+export const LazySharedAmountBalance: typeof import("../../injective-ui/layer/components/AmountBalance.vue")['default']
 export const LazySharedAmountCollapsed: typeof import("../../injective-ui/layer/components/AmountCollapsed.vue")['default']
 export const LazySharedAmountFormatter: typeof import("../../injective-ui/layer/components/AmountFormatter.vue")['default']
 export const LazySharedBitMapFilterList: typeof import("../../injective-ui/layer/components/BitMapFilterList.vue")['default']

@@ -185,6 +185,7 @@
   "exclude": [
     "../dist",
     "../node_modules",
+    "../../node_modules",
     "../node_modules/nuxt/node_modules",
     "../../injective-ui/layer/node_modules",
     "../node_modules/@pinia/nuxt/runtime/server",

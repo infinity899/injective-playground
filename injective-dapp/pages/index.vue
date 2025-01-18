@@ -2,4 +2,5 @@
 
 <template>
   <Example />
+  <SharedConfetti />
 </template>

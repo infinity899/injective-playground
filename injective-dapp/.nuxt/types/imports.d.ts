@@ -378,6 +378,7 @@ declare global {
   const useShadowRoot: typeof import('../../node_modules/vue')['useShadowRoot']
   const useShare: typeof import('../../node_modules/@vueuse/core')['useShare']
   const useSharedBigNumberFormatter: typeof import('../../../injective-ui/layer/composables/useSharedBigNumberFormatted')['useSharedBigNumberFormatter']
+  const useSharedBreakpoints: typeof import('../../../injective-ui/layer/composables/useSharedBreakpoints')['useSharedBreakpoints']
   const useSharedConfetti: typeof import('../../../injective-ui/layer/composables/useSharedConfetti')['default']
   const useSharedGeoStore: typeof import('../../../injective-ui/layer/store/geo')['useSharedGeoStore']
   const useSharedModalStore: typeof import('../../../injective-ui/layer/store/modal')['useSharedModalStore']
@@ -845,6 +846,7 @@ declare module 'vue' {
     readonly useShadowRoot: UnwrapRef<typeof import('../../node_modules/vue')['useShadowRoot']>
     readonly useShare: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useShare']>
     readonly useSharedBigNumberFormatter: UnwrapRef<typeof import('../../../injective-ui/layer/composables/useSharedBigNumberFormatted')['useSharedBigNumberFormatter']>
+    readonly useSharedBreakpoints: UnwrapRef<typeof import('../../../injective-ui/layer/composables/useSharedBreakpoints')['useSharedBreakpoints']>
     readonly useSharedConfetti: UnwrapRef<typeof import('../../../injective-ui/layer/composables/useSharedConfetti')['default']>
     readonly useSharedGeoStore: UnwrapRef<typeof import('../../../injective-ui/layer/store/geo')['useSharedGeoStore']>
     readonly useSharedModalStore: UnwrapRef<typeof import('../../../injective-ui/layer/store/modal')['useSharedModalStore']>

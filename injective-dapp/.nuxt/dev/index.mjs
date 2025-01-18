@@ -1,30 +1,30 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, setResponseHeaders, createError, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/h3/dist/index.mjs';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, setResponseHeaders, createError, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/devalue/index.js';
-import destr from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/destr/dist/index.mjs';
-import { propsToString, renderSSRHead } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/@unhead/ssr/dist/index.mjs';
-import { createHooks } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/hookable/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/ofetch/dist/node.mjs';
-import { createCall, createFetch } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/unenv/runtime/fetch/index.mjs';
-import { klona } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/scule/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/radix3/dist/index.mjs';
-import { getContext } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/unctx/dist/index.mjs';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { stringify, uneval } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/devalue/index.js';
+import destr from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/destr/dist/index.mjs';
+import { propsToString, renderSSRHead } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/@unhead/ssr/dist/index.mjs';
+import { createHooks } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/hookable/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/ofetch/dist/node.mjs';
+import { createCall, createFetch } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/unenv/runtime/fetch/index.mjs';
+import { klona } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/scule/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/radix3/dist/index.mjs';
+import { getContext } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/unctx/dist/index.mjs';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { consola } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/consola/dist/index.mjs';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/errx/dist/index.js';
-import { isVNode, version, unref } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/vue/index.mjs';
-import { hash } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/ohash/dist/index.mjs';
-import { createServerHead as createServerHead$1, CapoPlugin } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file:///Users/leeruianthomas/Public/injective/FeTest/node_modules/@unhead/shared/dist/index.mjs';
+import { consola } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/consola/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/errx/dist/index.js';
+import { isVNode, version, unref } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/vue/index.mjs';
+import { hash } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/ohash/dist/index.mjs';
+import { createServerHead as createServerHead$1, CapoPlugin } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file:///Users/andrei/Projects/injective-playground/injective-dapp/node_modules/@unhead/shared/dist/index.mjs';
 
 const HASH_RE = /#/g;
 const AMPERSAND_RE = /&/g;
@@ -408,13 +408,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _2uFZVYsbIZ = (function(nitro) {
+const _tOcXbwsawf = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/Users/leeruianthomas/Public/injective/FeTest";
+const rootDir = "/Users/andrei/Projects/injective-playground/injective-dapp";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
 
@@ -433,7 +433,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : undefined
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _Qtkn5Ems4A = (nitroApp) => {
+const _eVCjJPqVpZ = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -503,18 +503,18 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _2uFZVYsbIZ,
-_Qtkn5Ems4A
+  _tOcXbwsawf,
+_eVCjJPqVpZ
 ];
 
-const _lazy_6MeGPj = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_PmtBhX = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_6MeGPj, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_6MeGPj, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_PmtBhX, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_PmtBhX, lazy: true, middleware: false, method: undefined }
 ];
 
-const serverAssets = [{"baseName":"server","dir":"/Users/leeruianthomas/Public/injective/FeTest/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/andrei/Projects/injective-playground/injective-dapp/server/assets"}];
 
 const assets = createStorage();
 
@@ -526,11 +526,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/leeruianthomas/Public/injective/FeTest","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/leeruianthomas/Public/injective/FeTest/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/leeruianthomas/Public/injective/FeTest/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/leeruianthomas/Public/injective/FeTest/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/leeruianthomas/Public/injective/FeTest/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/andrei/Projects/injective-playground/injective-dapp","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/andrei/Projects/injective-playground/injective-dapp/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/andrei/Projects/injective-playground/injective-dapp/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/andrei/Projects/injective-playground/injective-dapp/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/andrei/Projects/injective-playground/injective-dapp/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -1434,7 +1434,7 @@ function publicAssetsURL(...path) {
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file:///Users/leeruianthomas/Public/injective/FeTest/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getClientManifest = () => import('file:///Users/andrei/Projects/injective-playground/injective-dapp/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSPARenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();

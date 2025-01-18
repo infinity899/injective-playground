@@ -36,6 +36,7 @@ export { useTokenStore } from '../store/token';
 export { useWalletStore } from '../store/wallet';
 export { useStringField, useNumberField, useBooleanField } from '../../injective-ui/layer/composables/useBaseField';
 export { useSharedBigNumberFormatter } from '../../injective-ui/layer/composables/useSharedBigNumberFormatted';
+export { useSharedBreakpoints } from '../../injective-ui/layer/composables/useSharedBreakpoints';
 export { default as useSharedConfetti } from '../../injective-ui/layer/composables/useSharedConfetti';
 export { sharedDelayPromiseCall, sharedBackupPromiseCall } from '../../injective-ui/layer/utils/async';
 export { dataCyTag } from '../../injective-ui/layer/utils/ci';
