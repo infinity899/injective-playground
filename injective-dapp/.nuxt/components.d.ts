@@ -2,7 +2,8 @@
 import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
-      'Example': typeof import("../components/Example.vue")['default']
+      'AppDashboard': typeof import("../components/AppDashboard.vue")['default']
+    'AppLogin': typeof import("../components/AppLogin.vue")['default']
     'SharedAccordion': typeof import("../../injective-ui/layer/components/Accordion.vue")['default']
     'SharedAmountBalance': typeof import("../../injective-ui/layer/components/AmountBalance.vue")['default']
     'SharedAmountCollapsed': typeof import("../../injective-ui/layer/components/AmountCollapsed.vue")['default']
@@ -66,7 +67,8 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyExample': typeof import("../components/Example.vue")['default']
+      'LazyAppDashboard': typeof import("../components/AppDashboard.vue")['default']
+    'LazyAppLogin': typeof import("../components/AppLogin.vue")['default']
     'LazySharedAccordion': typeof import("../../injective-ui/layer/components/Accordion.vue")['default']
     'LazySharedAmountBalance': typeof import("../../injective-ui/layer/components/AmountBalance.vue")['default']
     'LazySharedAmountCollapsed': typeof import("../../injective-ui/layer/components/AmountCollapsed.vue")['default']
@@ -136,7 +138,8 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
-export const Example: typeof import("../components/Example.vue")['default']
+export const AppDashboard: typeof import("../components/AppDashboard.vue")['default']
+export const AppLogin: typeof import("../components/AppLogin.vue")['default']
 export const SharedAccordion: typeof import("../../injective-ui/layer/components/Accordion.vue")['default']
 export const SharedAmountBalance: typeof import("../../injective-ui/layer/components/AmountBalance.vue")['default']
 export const SharedAmountCollapsed: typeof import("../../injective-ui/layer/components/AmountCollapsed.vue")['default']
@@ -200,7 +203,8 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-export const LazyExample: typeof import("../components/Example.vue")['default']
+export const LazyAppDashboard: typeof import("../components/AppDashboard.vue")['default']
+export const LazyAppLogin: typeof import("../components/AppLogin.vue")['default']
 export const LazySharedAccordion: typeof import("../../injective-ui/layer/components/Accordion.vue")['default']
 export const LazySharedAmountBalance: typeof import("../../injective-ui/layer/components/AmountBalance.vue")['default']
 export const LazySharedAmountCollapsed: typeof import("../../injective-ui/layer/components/AmountCollapsed.vue")['default']
