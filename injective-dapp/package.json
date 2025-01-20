@@ -11,10 +11,13 @@
     "postinstall": "yarn add https://github.com/InjectiveLabs/shared-packages#master --ignore-scripts && yarn fetch:data"
   },
   "dependencies": {
+    "@nuxt/ui": "^2.21.0",
     "@pinia/nuxt": "^0.4.11",
     "@vueuse/components": "^10.3.0",
     "@vueuse/nuxt": "^10.3.0",
-    "shared-packages": "https://github.com/InjectiveLabs/shared-packages#master"
+    "install": "^0.13.0",
+    "shared-packages": "https://github.com/InjectiveLabs/shared-packages#master",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.7",

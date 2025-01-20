@@ -8,8 +8,12 @@ const login = async (wallet: Wallet) => {
 </script>
 
 <template>
-  <button @click="login(Wallet.Metamask)">log in with Metamask</button>
-  <button @click="login(Wallet.Keplr)">log in with Keplr</button>
+  <SharedButton
+    class="mr-2"
+    label="log in with Keplr"
+    @click="login(Wallet.Keplr)"
+  />
+  <SharedButton label="log in with Metamask" @click="login(Wallet.Metamask)" />
 </template>
 
 <style scoped></style>
