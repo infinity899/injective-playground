@@ -4,6 +4,7 @@ import {
   ChainGrpcBankApi,
   IndexerGrpcSpotApi,
   IndexerGrpcDerivativesApi,
+  IndexerGrpcOracleApi,
   IndexerGrpcDerivativesStream
 } from '@injectivelabs/sdk-ts'
 import { getNetworkEndpoints, Network } from '@injectivelabs/networks'
@@ -29,3 +30,26 @@ export const indexerSpotStream = new IndexerGrpcDerivativesStream(
 export const indexerDerivativeStream = new IndexerGrpcDerivativesStream(
   ENDPOINTS.indexer
 )
+
+const derivativesApi = new IndexerGrpcDerivativesApi(ENDPOINTS.indexer)
+const indexerGrpcOracleApi = new IndexerGrpcOracleApi(ENDPOINTS.indexer)
+export async function getInjUsdtPerpOraclePrice() {
+  const markets = await derivativesApi.fetchMarkets()
+
+  const market = markets.find((m) => m.ticker === 'INJ/USDT PERP')
+  if (!market) {
+    throw new Error('INJ/USDT PERP market not found!')
+  }
+
+  const baseSymbol = (market as any).oracleBase
+  const quoteSymbol = (market as any).oracleQuote
+  const oracleType = (market as any).oracleType
+
+  const oraclePrice = await indexerGrpcOracleApi.fetchOraclePriceNoThrow({
+    baseSymbol,
+    quoteSymbol,
+    oracleType
+  })
+
+  return oraclePrice
+}
