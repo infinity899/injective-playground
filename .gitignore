@@ -70,6 +70,7 @@ typings/
 
 # nuxt.js build output
 ../.nuxt
+injective-dapp/.nuxt
 
 # Nuxt generate
 dist
