@@ -99,3 +99,4 @@ sw.*
 /public/vendor
 
 app/data/tokens.json
+/injective-dapp/.nuxt/

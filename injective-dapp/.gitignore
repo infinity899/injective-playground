@@ -98,3 +98,4 @@ sw.*
 /public/vendor
 
 app/data/tokens.json
+/.nuxt/
