@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { BigNumber } from '@injectivelabs/utils'
+import { injToken } from '@shared/data/token'
 import { toBalanceInToken } from '@/app/utils/formatters'
-import { getInjUsdtPerpOraclePrice } from '@/app/Service'
 
-async function getInjUsdPrice() {
-  const price = await getInjUsdtPerpOraclePrice()
-  return price.price
-}
-
-const price = await getInjUsdPrice()
+const tokenStore = useTokenStore()
 
 const accountStore = useAccountStore()
+onMounted(async () => {
+  await tokenStore.fetchTokensUsdPrices()
+})
 </script>
 
 <template>
@@ -31,7 +29,7 @@ const accountStore = useAccountStore()
         }}
         {{
           '$' +
-          Number(price) *
+          Number(tokenStore.tokenPrice(injToken.coinGeckoId)) *
             Number(
               toBalanceInToken({
                 value: item.amount,

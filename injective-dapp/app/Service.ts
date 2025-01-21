@@ -33,6 +33,8 @@ export const indexerDerivativeStream = new IndexerGrpcDerivativesStream(
 
 const derivativesApi = new IndexerGrpcDerivativesApi(ENDPOINTS.indexer)
 const indexerGrpcOracleApi = new IndexerGrpcOracleApi(ENDPOINTS.indexer)
+
+// price from Oracle Service but not using it as price from shared-layer is preferred
 export async function getInjUsdtPerpOraclePrice() {
   const markets = await derivativesApi.fetchMarkets()
 

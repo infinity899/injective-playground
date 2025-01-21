@@ -24,14 +24,19 @@ export const useTokenStore = defineStore('token', {
         }
 
         return tokenFactoryStatic.toToken(denomOrSymbol)
+      },
+    tokenPrice:
+      (state) =>
+      (coinGeckoId: string): number | undefined => {
+        return state.tokenUsdPriceMap[coinGeckoId]
       }
   },
   actions: {
     async fetchTokensUsdPrices() {
-      const tokenStore = useTokenStore()
-
-      tokenStore.tokenUsdPriceMap =
-        await tokenPriceService.fetchUsdTokensPrice()
+      const pricesMap = await tokenPriceService.fetchUsdTokensPrice([
+        'injective-protocol'
+      ])
+      this.tokenUsdPriceMap = pricesMap
     }
   }
 })
