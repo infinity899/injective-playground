@@ -2,7 +2,9 @@ import { defineStore } from 'pinia'
 import { IndexerGrpcAccountPortfolioApi } from '@injectivelabs/sdk-ts'
 import { getNetworkEndpoints, Network } from '@injectivelabs/networks'
 import { Coin } from '@injectivelabs/ts-types'
+import { BigNumber } from '@injectivelabs/utils'
 import { transfer } from '@/store/account/message'
+import { toBalanceInToken } from '@/app/utils/formatters'
 
 const endpoints = getNetworkEndpoints(Network.Testnet)
 const indexerGrpcAccountPortfolioApi = new IndexerGrpcAccountPortfolioApi(
@@ -12,30 +14,60 @@ const indexerGrpcAccountPortfolioApi = new IndexerGrpcAccountPortfolioApi(
 type AccountStoreState = {
   address: string
   bankDetails: Coin[]
+  addressValue: number
 }
 
 const initialStateFactory = (): AccountStoreState => ({
   address: '',
-  bankDetails: []
+  bankDetails: [],
+  addressValue: 0
 })
 
 export const useAccountStore = defineStore('account', {
   state: (): AccountStoreState => initialStateFactory(),
   getters: {
     isAuthenticated: (state) => !!state.address.length,
-    getBankDetails: (state) => state.bankDetails
+    getBankDetails: (state) => state.bankDetails,
+    getAddressValue: (state) => {
+      const tokenStore = useTokenStore()
+      const totalUsd = state.bankDetails.reduce((acc, item) => {
+        const token = tokenStore.tokenByDenomOrSymbol(item.denom)
+
+        const coinGeckoId = token?.coinGeckoId || 'injective-protocol'
+
+        const tokenPriceUsd = Number(tokenStore.tokenPrice(coinGeckoId) || 0)
+
+        const amountAsFloat = Number(
+          toBalanceInToken({
+            value: item.amount,
+            decimalPlaces: token?.decimals ?? 18, // fallback to 18 decimals if unknown
+            fixedDecimals: 4,
+            roundingMode: BigNumber.ROUND_DOWN
+          })
+        )
+
+        // Multiply by the token's USD price
+        return acc + tokenPriceUsd * amountAsFloat
+      }, 0)
+
+      return '$' + totalUsd
+    }
   },
   actions: {
     setAddress(address: string) {
       this.address = address
     },
-    async setPortfolio() {
+    async initiatePortfolio() {
+      const stakeStore = useStakingStore()
+
+      // get unlocked INJ
       const portfolio =
         await indexerGrpcAccountPortfolioApi.fetchAccountPortfolioBalances(
           this.address
         )
-      this.bankDetails = [...portfolio.bankBalancesList]
-      console.log(portfolio)
+      // get delegated INJ
+      const delegations = await stakeStore.fetchDelegations()
+      this.bankDetails = [...portfolio.bankBalancesList, ...delegations]
     },
     transfer
   }

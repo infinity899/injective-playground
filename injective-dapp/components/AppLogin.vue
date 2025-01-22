@@ -5,7 +5,7 @@ const walletStore = useWalletStore()
 const accountStore = useAccountStore()
 const connectToChain = async (wallet: Wallet) => {
   await walletStore.getAddress(wallet)
-  await accountStore.setPortfolio()
+  await accountStore.initiatePortfolio()
 }
 </script>
 
