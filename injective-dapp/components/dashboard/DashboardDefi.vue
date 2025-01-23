@@ -13,7 +13,9 @@ const transferAmount = ref('')
 const destinationAddress = ref('')
 
 const availableDenoms = computed(() =>
-  accountStore.getBankDetails.map((detail) => detail.denom)
+  accountStore.getBankDetails
+    .filter((detail) => detail.denom !== 'Staked inj')
+    .map((detail) => detail.denom)
 )
 
 const clearDefiState = () => {
