@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { BigNumber } from '@injectivelabs/utils'
-import { toBalanceInToken } from '@/app/utils/formatters'
+import {
+  BigNumber,
+  BigNumberInBase,
+  BigNumberInWei
+} from '@injectivelabs/utils'
+import {
+  toBalanceInToken,
+  formatPrice,
+  formatAmount
+} from '@/app/utils/formatters'
 
 const tokenStore = useTokenStore()
 
@@ -13,12 +21,12 @@ onMounted(async () => {
 <template>
   <div class="p-4 space-y-4">
     <div>
-      <h1 class="text-xl font-bold text-primary-500">
+      <h2 class="text-md font-bold text-primary-500">
         {{ $t('home.balance') }}
-      </h1>
-      <h2 class="text-sm text-primary-500 font-bold">
-        {{ accountStore.getAddressValue }}
       </h2>
+      <h1 class="text-xl text-primary-500 font-bold">
+        {{ accountStore.getAddressValue }}
+      </h1>
     </div>
 
     <div>
@@ -40,13 +48,12 @@ onMounted(async () => {
         <div class="text-sm text-indigo-300 mb-1">
           <span class="font-semibold mr-1">Amount:</span>
           {{
-            toBalanceInToken({
-              value: item.amount,
-              decimalPlaces:
-                tokenStore.tokenByDenomOrSymbol(item.denom)?.decimals ?? 18,
-              fixedDecimals: 4,
-              roundingMode: BigNumber.ROUND_DOWN
-            })
+            formatAmount(
+              new BigNumberInWei(item.amount).toBase(
+                tokenStore.tokenByDenomOrSymbol(item.denom)?.decimals ?? 18
+              ),
+              4
+            )
           }}
         </div>
 
@@ -54,21 +61,26 @@ onMounted(async () => {
           <span class="font-semibold mr-1">{{ $t('home.value') }}</span>
           {{
             '$' +
-            Number(
-              tokenStore.tokenPrice(
-                tokenStore.tokenByDenomOrSymbol(item.denom)?.coinGeckoId ??
-                  'injective-protocol'
-              )
-            ) *
-              Number(
-                toBalanceInToken({
-                  value: item.amount,
-                  decimalPlaces:
-                    tokenStore.tokenByDenomOrSymbol(item.denom)?.decimals ?? 18,
-                  fixedDecimals: 4,
-                  roundingMode: BigNumber.ROUND_DOWN
-                })
-              )
+            formatPrice(
+              new BigNumberInBase(
+                tokenStore.tokenPrice(
+                  tokenStore.tokenByDenomOrSymbol(item.denom)?.coinGeckoId ??
+                    'injective-protocol'
+                ) || 0
+              ).times(
+                new BigNumberInBase(
+                  toBalanceInToken({
+                    value: item.amount,
+                    decimalPlaces:
+                      tokenStore.tokenByDenomOrSymbol(item.denom)?.decimals ??
+                      18,
+                    fixedDecimals: 2,
+                    roundingMode: BigNumber.ROUND_DOWN
+                  })
+                )
+              ),
+              2 // 2 decimals
+            )
           }}
         </div>
       </div>

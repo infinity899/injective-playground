@@ -5,7 +5,9 @@ import {
   ErrorType
 } from '@injectivelabs/exceptions'
 import { Wallet } from '@injectivelabs/wallet-ts'
+import { useSharedWalletStore } from '@shared/store/wallet'
 import { walletStrategy } from '@/app/Wallet'
+import { TRADING_MESSAGES } from '@/types'
 
 type WalletStoreState = {}
 
@@ -15,9 +17,11 @@ export const useWalletStore = defineStore('wallet', {
   state: (): WalletStoreState => initialStateFactory(),
   actions: {
     async getAddress(wallet: Wallet) {
-      walletStrategy.setWallet(wallet)
+      const sharedWalletStore = useSharedWalletStore()
+      await sharedWalletStore.connectWallet(wallet)
+      await sharedWalletStore.getHWAddresses(wallet)
 
-      const addresses = await walletStrategy.getAddresses()
+      const addresses = sharedWalletStore.hwAddresses
 
       if (addresses.length === 0) {
         throw new WalletException(
@@ -42,15 +46,23 @@ export const useWalletStore = defineStore('wallet', {
       accountStore.setAddress(addresses[0])
     },
 
-    async validateAndQueue() {
-      const walletStore = useSharedWalletStore()
-      await walletStore.validateAndQueue()
+    async validate() {
+      const sharedWalletStore = useSharedWalletStore()
+
+      const isAutoSignEnabled = !!sharedWalletStore.isAutoSignEnabled
+
+      await sharedWalletStore.validateAndQueue()
+
+      if (isAutoSignEnabled) {
+        await sharedWalletStore.validateAutoSign(TRADING_MESSAGES)
+      }
     },
 
     async disconnect() {
       const accountStore = useAccountStore()
-      await walletStrategy.disconnect()
-      accountStore.setAddress('')
+      const sharedWalletStore = useSharedWalletStore()
+      await sharedWalletStore.logout()
+      accountStore.$reset()
     }
   }
 })

@@ -2,9 +2,9 @@ import { defineStore } from 'pinia'
 import { IndexerGrpcAccountPortfolioApi } from '@injectivelabs/sdk-ts'
 import { getNetworkEndpoints, Network } from '@injectivelabs/networks'
 import { Coin } from '@injectivelabs/ts-types'
-import { BigNumber } from '@injectivelabs/utils'
+import { BigNumber, BigNumberInBase } from '@injectivelabs/utils'
 import { transfer } from '@/store/account/message'
-import { toBalanceInToken } from '@/app/utils/formatters'
+import { toBalanceInToken, formatPrice } from '@/app/utils/formatters'
 
 const endpoints = getNetworkEndpoints(Network.Testnet)
 const indexerGrpcAccountPortfolioApi = new IndexerGrpcAccountPortfolioApi(
@@ -50,7 +50,7 @@ export const useAccountStore = defineStore('account', {
         return acc + tokenPriceUsd * amountAsFloat
       }, 0)
 
-      return '$' + totalUsd
+      return '$' + formatPrice(new BigNumberInBase(totalUsd), 2)
     }
   },
   actions: {
@@ -66,6 +66,7 @@ export const useAccountStore = defineStore('account', {
           this.address
         )
       // get delegated INJ
+      console.log(portfolio.bankBalancesList, 'portfolio.bankBalancesList')
       const delegations = await stakeStore.fetchDelegations()
       this.bankDetails = [...portfolio.bankBalancesList, ...delegations]
     },

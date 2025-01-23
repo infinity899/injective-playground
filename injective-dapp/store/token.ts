@@ -18,11 +18,7 @@ export const useTokenStore = defineStore('token', {
   getters: {
     tokenByDenomOrSymbol:
       () =>
-      (denomOrSymbol: string): TokenStatic | undefined => {
-        if (!denomOrSymbol) {
-          return
-        }
-
+      (denomOrSymbol: string): TokenStatic => {
         return tokenFactoryStatic.toToken(denomOrSymbol)
       },
     tokenPrice:
